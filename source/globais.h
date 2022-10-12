@@ -8,7 +8,12 @@
  */
 
 typedef struct {
-  char nome[50], cpf[14], email[50], celular[12], senha[30];
+  char nome[50], 
+        cpf[14], 
+        email[50], 
+        celular[12], 
+        senha[30];
+  int saldo;
 } Usuario;
 
 /**
