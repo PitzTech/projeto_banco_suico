@@ -3,6 +3,6 @@
 
 #include "globais.h"
 
-Usuario busca_usuario(char *identificador);
+Usuario busca_usuario(char *identificador, int show_message);
 
 #endif /* SEARCH_H */

@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-#include "search.h"
 #include "globais.h"
+#include "search.h"
 
-Usuario busca_usuario(char *identificador) {
+Usuario busca_usuario(char *identificador, int show_message) {
   Usuario user_found = USER_NOT_FOUND;
 
   for (int index = 0; index < tot_usuarios; index++) {
@@ -16,9 +16,10 @@ Usuario busca_usuario(char *identificador) {
     }
   }
 
-  if (is_valid_user(user_found)) {
+  if (!is_valid_user(user_found) && show_message == 1) {
     printf("Usuário %s não encontrado!\n", identificador);
   }
 
   return user_found;
 }
+

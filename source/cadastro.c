@@ -2,6 +2,7 @@
 
 #include "cadastro.h"
 #include "globais.h"
+#include "search.h"
 
 void cadastro() {
   Usuario temp_user;
@@ -21,6 +22,33 @@ void cadastro() {
 
     clean_console();
 
+    Usuario user_found = USER_NOT_FOUND;
+    user_found = busca_usuario(temp_user.cpf, 0);
+
+    if (is_valid_user(user_found)) {
+      printf("Esse CPF já está cadastrado! Ligando para o FBI.\n");
+
+      printf("Para continuar aperte ENTER.");
+
+      getchar();
+
+      return;
+    }
+
+    user_found = busca_usuario(temp_user.email, 0);
+
+    if (is_valid_user(user_found)) {
+      printf("Esse EMAIL já está cadastrado! Ligando para o FBI.\n");
+
+      printf("Para continuar aperte ENTER.");
+
+      getchar();
+
+      return;
+    }
+
+    // TODO: JÀ EXISTE UM USUARIO COM ESSE EMAIL OU CPF
+
     printf("As informações digitadas são: ");
 
     printf("\nNome: %s", temp_user.nome);
@@ -34,5 +62,7 @@ void cadastro() {
     clean_console();
   }
 
+  temp_user.id = tot_usuarios;
+  temp_user.tot_transacoes = 0;
   usuarios[tot_usuarios++] = temp_user;
 }

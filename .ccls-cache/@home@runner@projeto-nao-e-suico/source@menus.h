@@ -9,4 +9,6 @@ void home_menu();
 
 void deposito_sacar_menu();
 
+void pix_ted_menu();
+
 #endif /* MENUS_H */
