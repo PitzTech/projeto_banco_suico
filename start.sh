@@ -1,5 +1,5 @@
 ./clean.sh
-clear
+# clear # comment to PROD
 make all
-#clear
+clear # comment to DEV
 ./bancopelado
